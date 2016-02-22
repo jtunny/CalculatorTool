@@ -208,9 +208,31 @@ public class CalculatorTest {
 		
 	}
 
+	/*
+	 * A test to make sure the getHistory() method is working properly.
+	 * 
+	 * 1) 	Perform some operations and verify that the string
+	 * 		returned by getHistory() reflects the operations
+	 * 		we performed.
+	 */
+	
 	@Test
 	public void testGetHistory() {
-		fail("Not yet implemented");
+		
+		Calculator calc = new Calculator();
+		
+		calc.add(7);
+		
+		assertEquals("0 + 7", calc.getHistory());
+		
+		calc.subtract(2);
+		calc.multiply(2);
+		calc.divide(5);
+		calc.add(22);
+		calc.add(-12);
+		
+		assertEquals("0 + 7 - 2 * 2 / 5 + 22 + -12", calc.getHistory());
+		
 	}
 
 }

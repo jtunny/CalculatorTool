@@ -15,6 +15,7 @@ package cse360assign3;
 public class Calculator {
 
 	private int total;							// The running total. All performed operations operate on this variable.
+	private String opHistory;					// String to store all the operations made on total
 	
 	/**
 	 * Construct a Calculator object and initialize total to 0.
@@ -22,6 +23,7 @@ public class Calculator {
 	
 	public Calculator () {
 		total = 0;  							// Initially, total is 0	
+		opHistory = "0";						// String to keep track of what operations have been performed on total.
 	}
 	
 	/**
@@ -41,7 +43,10 @@ public class Calculator {
 	 */
 	
 	public void add (int value) {
-		total += value;
+		
+		total += value;											// Update total
+		
+		opHistory = opHistory + " + " + String.valueOf(value);	// Update history
 	}
 	
 	/**
@@ -52,7 +57,10 @@ public class Calculator {
 	 */
 	
 	public void subtract (int value) {
-		total -= value;
+		
+		total -= value;											// Update total
+		
+		opHistory = opHistory + " - " + String.valueOf(value);	// Update history
 	}
 	
 	/**
@@ -62,7 +70,10 @@ public class Calculator {
 	 */
 	
 	public void multiply (int value) {
-		total *= value;
+		
+		total *= value;											// Update total
+		
+		opHistory = opHistory + " * " + String.valueOf(value);	// Update history
 	}
 	
 	/**
@@ -74,7 +85,11 @@ public class Calculator {
 	 */
 	
 	public void divide (int value) {
-		total = value == 0 ? 0 : total / value;
+		
+		// Check if value is 0. If so, set total to 0. Otherwise perform the division.
+		total = value == 0 ? 0 : total / value;					// Update total
+		
+		opHistory = opHistory + " / " + String.valueOf(value);	// Update history
 	}
 	
 	/**
@@ -82,11 +97,11 @@ public class Calculator {
 	 * that have been performed on total. It also displays what the values
 	 * used with those operations were.
 	 * 
-	 * @return - a string of the values and operations performed on total
+	 * @return opHistory - a string of the values and operations performed on total
 	 */
 	
 	public String getHistory () {
-		return "";
+		return opHistory;
 	}
 	
 }
